@@ -1,0 +1,349 @@
+import { Head, Image, Appear, Notes } from "mdx-deck";
+
+import { themes } from "mdx-deck";
+
+export const theme = themes.yellow;
+
+import Tokenization from './Tokenization.png';
+
+import DOMTree from './dom_tree.png';
+
+<Head>
+  <title>An Intro to JavaScript and the DOM</title>
+</Head>
+
+---
+
+<div style={{width: '90%'}}>
+    <h1 style={{textAlign: 'center'}}>An Intro to JavaScript and the DOM</h1>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>A Brief History of JavaScript</h2>
+    <p>Brendan Eich, a programmer who worked for Netscape Communications Corporation, created JavaScript in 1995. It took him only 10 days to develop JavaScript, which then went under the name Mocha.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Why JavaScript?</h2>
+    <p>Eich created JavaScript for Netscape Navigator, and it quickly became known as LiveScript. Then later, the Netscape team changed the name to JavaScript to reflect Netscape's support of the Java programming language in its browser. At the time, people said it was a marketing tactic to connect a brand new language (JavaScript) to a popular language at the time (Java). This was despite the fact that Java and Javascript have nothing to do with each other. This confusion between the two languages exists to this day!</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>The Reason For JS Name Change</h2>
+    <p>According to Axel Rauschmayer in his book <code>Speaking JavaScript: An In-Depth Guide for Programmers</code>,</p>
+        <blockquote>
+            Knowing why and how JavaScript was created helps us understand why it is the way it is.
+        </blockquote>
+    <p>I'd like to read a snippet from his book to give you a bit of history behind the language from a different, deeper, and more professional perspective.</p>
+    <Notes>Next, I will go to the book online to Chapter 4 and read from it so the students will understand why JavaScript was originally created. Great explanation there. <a href="http://speakingjs.com/es5/ch04.html" target="_blank" style={{color: "#fff"}}>Chapter 4. How JavaScript Was Created</a></Notes>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>What is JavaScript?</h2>
+    <p>JavaScript is a scripting or programming language that allows you to create complex features on web pages. Whenever a page displays dynamic content you know that JavaScript is probably behind it. With JavaScript, you can display content updates, animated 2D/3D graphics, scrolling video jukeboxes,  image slide shows, video players, audio players, etc.</p>
+    <p>In simpler and more direct terms, JavaScript is a language that the browser reads and does stuff with.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>JavaScript Isn't Only For The Browser Anymore</h2>
+    <p>JavaScript is no longer just for the browser anymore. Today, there is <a href="https://nodejs.org/en/">Node.js</a>, an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser, and <a>MongoDB</a>, an Open Source database written in C++.. BUT what is great about MongoDB for JavaScript Developers, is that it supports Server-Side JavaScript execution. This allows a JavaScript developer to use a single programming language for both client and server side code.. AND <code>MongoDB is a document oriented database</code>. Node.js was released in June, 2011, and MongoDB was realased on February 11, 2009.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>What is The DOM?</h2>
+    <p>The Document Object Model, or the DOM, is a platform and language neutral interface that allows programs and scripts to dynamically access and update the content, structure and style of documents.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>What is The DOM?</h2>
+    <p>The DOM is the DATA REPRESENTATION of the objects that comprise the structure and content of a document on the web.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>What is The DOM?</h2>
+    <p>According to the WHATWG (Web Hypertext Application Technology Group),</p>
+    <blockquote>
+        The DOM Standard defines the core infrastructure used to define the web.
+    </blockquote>
+    and
+    <blockquote>
+        The DOM defines a platform-neutral model for events, aborting activities, and node trees.
+    </blockquote>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Who Defines (and maintains) the DOM Standard?</h2>
+    <p>The standardization of the DOM was first handled by the World Wide Web Consortium (W3C), which last developed a recommendation in 2004.</p>
+    <p>Subsequently, WHATWG took over the development of the Standard, publishing it as a living document.</p>
+    <p>The W3C now PUBLISHES stable snapshots of the WHATWG standard.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>WHATWG DOM Specs</h2>
+    <p>
+        WHATWG breaks down the DOM Standards into the following:
+    </p>
+    <ul>
+        <li>Goals/Infrastructure</li>
+        <li>Goals/Events</li>
+        <li>Goals/Aborting ongoing activities</li>
+        <li>Goals/Nodes</li>
+        <li>Goals/Ranges</li>
+        <li>Goals/Traversal</li>
+        <li>Goals/Sets</li>
+        <li>Goals/XPath</li>
+        <li>Goals/Historical</li>
+    </ul>
+    <Notes>Go to <a href="https://dom.spec.whatwg.org/">DOM - The Living Standard on WHATWG to show what the page consists of.</a>
+    </Notes>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>The DOM and JavaScript</h2>
+    The DOM is NOT a programming language, but without it, Javascript would not have any model or concept of web pages, HTML documents, XML documents, and their parts (elements). Every element in a document, the document as a whole, the head, the body, the footer, p tags, header tags, sections, articles, navs, ul tags, li tags, the tables within the document, table headers, text within the table cells, is part of the DOM for that document. They all can be accessed and manipulated using the DOM and Javascript.
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>How is a Web Page Built?</h2>
+    <p>How a browser goes from a source HTML document to displaying a styled and interactive page in the viewport is called the <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path">Critical Rendering Path</a>.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Refresher: The Viewport</h2>
+    <p>The Viewport is the part of the web page that the viewer can see. Scrollbars move the viewport to show other parts of the page.</p>
+    <p>The viewport differs with different devices, i.e. mobile phone, ipad, tablet, laptop, or desktop, etc.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>What Exactly is The Critical Rendering Path?</h2>
+    <p>The Critial Rendering Path is the sequence of steps the browser goes through to convert HTML, CSS, and JavaScript into pixels on the screen. Optimizing the critical render path optimizes render performance.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>What Does the Critical Rendering Path Include?</h2>
+    <p>It includes the DOM, the CSS Object Model (CSSOM), render tree, layout, and paint.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>So How Does Browser Rendering Work?</h2>
+    <p>In order for the browser to render content on the page, it has to go through the five steps mentioned in the previous slide:</p>
+    <code>The DOM, the CSS Object Model (CSSOM), the render tree, layout, and paint.</code>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>When and How Is the DOM Created in the Critical Rendering Path Process?</h2>
+    <p>To process an HTML file, and get to the DOM, the browser has to go through four steps:</p>
+    <code>Convert bytes to characters, identify tokens, convert tokens to nodes, build the DOM tree</code>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>HTML Parser</h2>
+    <p>Basically, it is the HTML parser, i.e. implemented by the browser, that composes encoding, pre-parsing, tokenization, and tree formation.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Identity Tokens</h2>
+    <p>Tokenization is the first half of <i>parsing</i> <code>HTML</code>. It means turning the <code>HTML</code> <i>markup</i> into individual tokens such as "begin tag" or "opening tag", "end tag", etc., </p>
+</div>
+
+---
+
+<div style={{width: '100%', margin: '0 auto'}}>
+<img src={Tokenization} />
+</div>
+
+---
+
+<div style={{width: '100%', margin: '0 auto'}}>
+<img src={DOMTree}/>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Layout</h2>
+    <p>Once the <code>Render Tree</code> is built, <i>establishment</i> of the <code>Layout</code> becomes possible.</p>
+    <ul>
+        <li><code>Layout</code> is dependent on the size of the screen.</li>
+        <li>The <code>Layout</code> <i>step</i> determines where and how the elements are positioned on the page, determining the <code>width</code> and <code>height</code> of each element, and where they are in relation to each other.</li>
+        <Notes>Ask students what they think this Layout relates/refers to in design?</Notes>
+    </ul>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>What is the Width of an Element?</h2>
+    <p>Block level elements, such as <code>imgs</code>, have a default width of 100% of the width of their parent.</p>
+    <ul>
+        <li>An element width a width of 75%, will be three quarters of the width of its parent.</li>
+        <li>Unless otherwise specified, the <code>body</code> will have a <i>default</i> <code>width</code> of 100%. This means that it will fill 100% of the width of the viewport.</li>
+        <li>The width of the device impacts Layout.</li>
+    </ul>
+    <Notes>Again, ask how does one troubleshoot the issue of device width across different devices with different widths AND (potentially) heights? What are two things one can implement to solve this problem?</Notes>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>The Viewport Revisited</h2>
+    <p>The <i>viewport</i> <code>meta tag</code> defines the width of the layout viewport, impacting the Layout. Without it, the browser uses the default viewport width, which on <i>by-default</i> <code>full-screen browsers</code> is <code>960px</code>. </p>
+    <p>On by-default browsers, i.e., your iphone or tablet, if you set the viewport meta tag to <code>name="viewport" content="width=device-width"</code>, then the width will be the width of the device instead of the default viewport width.</p>
+<Notes>Actually, one should set the viewport meta tag to <code><meta name="viewport" content="width=device-width, initial-scale=1.0"/></code></Notes>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Complete Viewport Meta Tag</h2>
+    <code>name="viewport" content="width=device-width, initial-scale=1.0"</code>
+    <p><code>initial-scale=0</code> sets the initial zoom level when the page is first loaded by the browser.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Paint</h2>
+    <p>The <i>last</i> <code>step</code> in the <i>critical rendering path</i> is PAINT, as in painting pixels to the screen.</p>
+    <ul>
+        <li><i>Onload</i>, the entire screen is painted.</li>
+        <li>After that, only impacted areas, areas on the screen which have been modified, will be repainted. Browsers are optimized to repaint the minimum required. True to a certain extent. Depends on how much is going on with your javaScript AND CSS at any given time.</li>
+    </ul>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Paint time</h2>
+    <p>Paint time <i>depends on</i> what updates are being <i>applied</i> to the <code>render tree</code>.</p>
+    <p>Painting in of itself is fast, and not the most impactful in improving performance of your app, but one does have to take into consideration LAYOUT and REPAINT when measuring how long an animation frame may take to render/re-render, for example.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Styles and Paint</h2>
+    <p>Styles applied to each node increase paint time, but one should not just remove styles to improve performance. One has to consider whether the potentially incremental (very small) performance improvement outweighs the experience it provides to the visitor.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Understanding the DOM Means a Better Understanding of JavaScript and How it Works</h2>
+    <p>The DOM is essential to making websites interactive. JavaScript is the client-side scripting language that connects to the DOM and directly manipulates it in the browser.</p>
+    <p><i>Understanding</i> the <code>DOM</code> means a <i>better understanding</i> of <code>JavaScript</code> and how it works. For those of you who want to <i>further</i> your <b>understanding</b> of <code>JavaScript</code>, or want to go on to <i>using</i> <code>libraries</code> such as <code>React</code> or <code>frameworks</code> such as <code>Vue.js</code>, <code>Angular.js</code>, <code>Nuxt.js</code>, or <code>Next.js</code>, for example, <i>understanding</i> the <code>DOM</code> is <i>crucial</i>.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Related Resources</h2>
+    <ul>
+        <li>
+            <a href="https://www.thebalancecareers.com/learn-javascript-online-2071405">Places to Learn JavaScript Online</a>: <i>Laurence Bradford</i>, for <b>the balance careers</b>
+ 
+        </li>
+        <li>
+            <a href="https://www.checkmarx.com/blog/javascript-history-infographic/">The History of JavaScript [INFOGRAPHIC]</a>: <b>checkmarx</b>
+        </li>
+        <li>
+            <a href="https://spec.whatwg.org/">WHATWG - Standards</a>: <b>WHATWG</b>
+        </li>
+        <li>
+            <a href="https://dom.spec.whatwg.org/">WHATWG - DOM Standard</a>: <b>WHATWG</b>
+        </li>
+        <li>
+            <a href="https://www.w3.org/DOM/">Document Object Model (DOM)</a>: <b>W3C</b>
+        </li>
+        <li>
+            <a href="https://bitsofco.de/what-exactly-is-the-dom/">What, exactly, is the DOM?</a>: <i>Ire Aderinokun</i>, for <b>bitsofcode</b>
+        </li>
+    </ul>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Related Resources (contd)</h2>
+    <ul>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Introduction To The DOM</a>: <b>MDN</b>
+        </li>
+        <li>
+            <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path">Critical Rendering Path</a>: <b>MDN</b>
+        </li>
+        <li>
+            <a href="https://www.w3.org/2002/07/26-dom-article.html">The Document Object Model (DOM)</a>: <b>W3C</b>
+        </li>
+        <li>
+            <a href="http://speakingjs.com/">Speaking JavaScript: An In-Depth Guide for Programmers</a>: <i>free</i> <b>O'Reilly</b> book online
+        </li>
+        <li>
+            <a href="https://www.w3resource.com/mongodb/introduction-mongodb.php">Introduction to MongoDB</a>: <b>w3resource</b>
+        </li>
+        <li>    
+            <a href="https://en.wikipedia.org/wiki/Document_Object_Model">Document Object Model</a>: <b>wikipedia</b>
+        </li>
+    </ul>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+    <h2>Related Resources (contd)</h2>
+    <ul>
+        <li>
+            <a href="https://stackoverflow.com/questions/2939693/what-is-viewport-in-html">What is viewport in HTML?</a>: <b>stackoverflow</b>
+        </li>
+        <li>
+            <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path">Critical Rendering Path</a>: <b>Google</b>
+        </li>
+        <li>    
+            <a href="https://medium.com/@luisvieira_gmr/understanding-the-critical-rendering-path-rendering-pages-in-1-second-735c6e45b47a">Understanding the critical rendering path, rendering pages in 1 second</a>: <i>Luis Vieira</i>, on <b>Medium</b>
+        </li>
+        <li>
+            <a href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference">Performance Analysis Reference</a>: <b>Google</b>
+        </li>
+        <li>
+            <a href="https://alistapart.com/article/tags-to-dom/">Tags to DOM</a>: <i>Travis Leithead</i>, for <b>A List Apart</b>
+        </li>
+    </ul>
+</div>

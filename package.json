@@ -1,0 +1,19 @@
+{
+  "name": "javascript-and-dom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "build": "mdx-deck build deck.mdx",
+    "help": "mdx-deck"
+  },
+  "author": "Maria D. Campbell",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "babel-loader": "^8.0.6",
+    "file-loader": "^5.0.2",
+    "mdx-deck": "^3.0.13"
+  }
+}
