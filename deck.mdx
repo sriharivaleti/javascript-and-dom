@@ -114,7 +114,7 @@ import DOMTree from './dom_tree.png';
         <li>Goals/XPath</li>
         <li>Goals/Historical</li>
     </ul>
-    <Notes>Go to <a href="https://dom.spec.whatwg.org/">DOM - The Living Standard on WHATWG to show what the page consists of.</a>
+    <Notes>Go to <a href="https://dom.spec.whatwg.org/" target="_blank">DOM - The Living Standard on WHATWG to show what the page consists of.</a>
     </Notes>
 </div>
 
@@ -180,8 +180,8 @@ import DOMTree from './dom_tree.png';
 ---
 
 <div style={{width: '90%'}}>
-    <h2>Identity Tokens</h2>
-    <p>Tokenization is the first half of <i>parsing</i> <code>HTML</code>. It means turning the <code>HTML</code> <i>markup</i> into individual tokens such as "begin tag" or "opening tag", "end tag", etc., </p>
+    <h2>Tokens</h2>
+    <p>Tokenization is the first half of <i>parsing</i> <code>HTML</code>. It means turning the <code>HTML</code> <i>markup</i> into individual tokens such as "begin tag" or "opening tag", "end tag", etc.</p>
 </div>
 
 ---
@@ -214,7 +214,7 @@ import DOMTree from './dom_tree.png';
     <h2>What is the Width of an Element?</h2>
     <p>Block level elements, such as <code>imgs</code>, have a default width of 100% of the width of their parent.</p>
     <ul>
-        <li>An element width a width of 75%, will be three quarters of the width of its parent.</li>
+        <li>An element with a width of 75%, will be three quarters of the width of its parent.</li>
         <li>Unless otherwise specified, the <code>body</code> will have a <i>default</i> <code>width</code> of 100%. This means that it will fill 100% of the width of the viewport.</li>
         <li>The width of the device impacts Layout.</li>
     </ul>
@@ -235,7 +235,7 @@ import DOMTree from './dom_tree.png';
 <div style={{width: '90%'}}>
     <h2>Complete Viewport Meta Tag</h2>
     <code>name="viewport" content="width=device-width, initial-scale=1.0"</code>
-    <p><code>initial-scale=0</code> sets the initial zoom level when the page is first loaded by the browser.</p>
+    <p><code>initial-scale=1.0"</code> sets the initial zoom level when the page is first loaded by the browser.</p>
 </div>
 
 ---
@@ -245,7 +245,7 @@ import DOMTree from './dom_tree.png';
     <p>The <i>last</i> <code>step</code> in the <i>critical rendering path</i> is PAINT, as in painting pixels to the screen.</p>
     <ul>
         <li><i>Onload</i>, the entire screen is painted.</li>
-        <li>After that, only impacted areas, areas on the screen which have been modified, will be repainted. Browsers are optimized to repaint the minimum required. True to a certain extent. Depends on how much is going on with your javaScript AND CSS at any given time.</li>
+        <li>After that, only impacted areas, areas on the screen which have been modified, will be repainted. Browsers are optimized to repaint the minimum required. True to a certain extent. Depends on how much is going on with your JavaScript AND CSS at any given time.</li>
     </ul>
 </div>
 
