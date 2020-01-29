@@ -173,6 +173,20 @@ import DOMTree from './dom_tree.png';
 ---
 
 <div style={{width: '90%'}}>
+    <h2>CSS Object Model (CSSOM)</h2>
+    <p>Just as the DOM contains all page content, the CSS Object Model contains all the info on how to style the DOM. CSSOM is similar to the DOM but different. The building of the DOM is bit by bit, and CSSOM is render blocking. What does this mean? The browser blocks the page from rendering until it receives and processes all the CSS. CSS is render blocking because rules can be overwritten in the CSS, so content can't be rendered until the CSSOM is complete.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
+<h2>CSS Object Model (CSSOM) (contd)</h2>
+    <p>CSS rules "cascade" down (Cascading Style Sheet). In the stylesheet itself, you could have one rule state one thing higher up the page, and as you go down the page, the same rule could state something else. The rule lower down the page is the rule that is then recognized, and it overwrites the previous rule. In the html page, things cascade down as well. Everything in the head and then then between the body tags has to render first, and then the script tags render afterwards. That's why it is important, to usually have your JavaScript tags at the bottom of the page. You want everything else to render BEFORE the JavaScript is rendered. In essence, the JavaScript DEPENDS on the CSS. Order is important.</p>
+</div>
+
+---
+
+<div style={{width: '90%'}}>
     <h2>HTML Parser</h2>
     <p>Basically, it is the HTML parser, i.e. implemented by the browser, that composes encoding, pre-parsing, tokenization, and tree formation.</p>
 </div>
@@ -233,7 +247,7 @@ import DOMTree from './dom_tree.png';
 ---
 
 <div style={{width: '90%'}}>
-    <h2>Complete Viewport Meta Tag</h2>
+    <h2>Complete Viewport Meta Tag Contents</h2>
     <code>name="viewport" content="width=device-width, initial-scale=1.0"</code>
     <p><code>initial-scale=1.0"</code> sets the initial zoom level when the page is first loaded by the browser.</p>
 </div>
