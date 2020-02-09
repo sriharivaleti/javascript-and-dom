@@ -1,0 +1,496 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>An Intro to JavaScript and the DOM</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css">
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section class="section">
+                <h1 class="capitalize">An Intro to JavaScript and the DOM</h1>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">A Brief History of JavaScript</h2>
+                <p><em><strong>Brendan Eich</strong></em>, a programmer who worked for <strong>Netscape
+                        Communications
+                        Corporation</strong>, created <code>JavaScript</code> in
+                    <strong>1995</strong>. It took him only 10 days to <em><strong>develop</strong></em>
+                    <code>JavaScript</code>, which then
+                    went under the
+                    name <code>Mocha</code>.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">The Reason For JS Name Change</h2>
+                <p>According to <strong>Axel Rauschmayer</strong> in his book <strong>Speaking JavaScript: An In-Depth
+                        Guide for
+                        Programmers</strong>,</p>
+                <blockquote>
+                    Knowing why and how JavaScript was created helps us understand why it is the way it is.
+                </blockquote>
+                <p>I'd like to read a <a href="http://speakingjs.com/es5/ch04.html" target="_blank">snippet</a> from
+                    his
+                    book to give you a bit of history behind the language from a
+                    different, deeper,
+                    and more professional perspective.</p>
+                <aside class="notes">Next, I will go to the book online to Chapter 4 and read from it so the students
+                    will understand
+                    why JavaScript
+                    was originally created. Great explanation there. <a href="http://speakingjs.com/es5/ch04.html"
+                        target="_blank">Chapter 4. How JavaScript Was Created</a>
+                </aside>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">What is JavaScript?</h2>
+                <p><strong>JavaScript</strong> is a scripting or programming language that allows you to create complex
+                    features on web
+                    pages. Whenever a
+                    page displays dynamic content you know that <strong>JavaScript</strong> is probably behind it. With
+                    <strong>JavaScript</strong>, you
+                    can display
+                    content updates, animated 2D/3D graphics, scrolling video jukeboxes, image slide shows, video
+                    players, audio
+                    players, etc.</p>
+                <p>In simpler and more direct terms, <strong>JavaScript</strong> is a <code>language</code> that the
+                    <strong>browser</strong> reads
+                    and does stuff
+                    with.</p>
+            </section>
+            <section class="section">
+                <h2>JavaScript Isn't Only For The Browser Anymore</h2>
+                <p><strong>JavaScript</strong> is no longer just for the browser anymore. Today, there is <a
+                        href="https://nodejs.org/en/">Node.js</a>,
+                    an open-source, cross-platform, <strong>JavaScript</strong> <code>runtime environment</code> that
+                    executes
+                    <strong>JavaScript</strong> <code>code</code> <em><strong>outside</strong></em>
+                    of a <code>browser</code>,
+                    and <a href="https://www.mongodb.com/" target="_blank">MongoDB</a>, an Open Source database written
+                    in C++.. BUT
+                    what is great about <code>MongoDB</code> for
+                    <strong>JavaScript
+                        Developers</strong>, is that it supports <em><strong>Server-Side</strong></em> <code>JavaScript
+                        execution</code>. This allows a
+                    <strong>JavaScript </strong>developer
+                    to use a <em><strong>single</strong></em>
+                    programming language for both client and server side code. AND <code>MongoDB</code> is a
+                    <code>document oriented
+                        database</code>. <a href="https://nodejs.org/en/" target="_blank">Node.js</a> was released in
+                    June, 2011, and
+                    <a href="https://www.mongodb.com/" target="_blank">MongoDB</a> was released on February
+                    11,
+                    2009.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">What is The DOM?</h2>
+                <p>The <code>Document Object Model</code>, or the <strong>DOM</strong>, is a platform and language
+                    neutral
+                    interface that
+                    allows
+                    <em><strong>programs</strong></em> and <em><strong>scripts</strong></em>
+                    to <code>dynamically</code> <em><strong>access</strong></em> and <em><strong>update</strong></em>
+                    the content, structure and
+                    style of <strong>documents</strong>.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">What is The DOM?</h2>
+                <p>The <strong>DOM</strong> is the <code>DATA REPRESENTATION</code> of the <code>objects</code> that
+                    comprise the
+                    <code>structure</code> and
+                    <code>content</code> of a
+                    <strong>document</strong> on the web.
+                </p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">What is The DOM?</h2>
+                <p>According to the WHATWG (Web Hypertext Application Technology Group),</p>
+                <blockquote>
+                    The DOM Standard defines the core infrastructure used to define the web.
+                </blockquote>
+                and
+                <blockquote>
+                    The DOM defines a platform-neutral model for events, aborting activities, and node trees.
+                </blockquote>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Who Defines (and maintains) the DOM Standard?</h2>
+                <p>The <em><strong>standardization</strong></em> of the <strong>DOM</strong> was first handled by the
+                    <strong>World Wide Web
+                        Consortium (W3C)</strong>, which last
+                    developed a
+                    recommendation in 2004.</p>
+                <p>Subsequently, <strong>WHATWG</strong> took over the development of the Standard, publishing it as a
+                    <code>living document</code>.
+                </p>
+                <p>The W3C now PUBLISHES stable snapshots of the WHATWG standard.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize"><strong>WHATWG</strong>: What do they mean by <code>living document</code>?</h2>
+                <p>According to the <strong>Wikipedia</strong> article on the <strong>WHATWG</strong>,
+                    <blockquote>
+                        The WHATWG specification for HTML is a living document that will have continuous changes as
+                        necessary.[17] It includes
+                        the core markup language for the web, HTML, as well as numerous APIs like WebSocket, web worker,
+                        Web storage, etc.
+                    </blockquote>
+                </p>
+            </section>
+            <section class="section">
+                <h2>WHATWG DOM Specs</h2>
+                <p>
+                    <strong>WHATWG</strong> breaks down the <strong>DOM</strong> Standards into the following:
+                </p>
+                <ul>
+                    <li>Goals/Infrastructure</li>
+                    <li>Goals/Events</li>
+                    <li>Goals/Aborting ongoing activities</li>
+                    <li>Goals/Nodes</li>
+                    <li>Goals/Ranges</li>
+                    <li>Goals/Traversal</li>
+                    <li>Goals/Sets</li>
+                    <li>Goals/XPath</li>
+                    <li>Goals/Historical</li>
+                </ul>
+                <aside class="notes">Go to <a href="https://dom.spec.whatwg.org/" target="_blank">DOM - The Living
+                        Standard on WHATWG
+                        to show what the page consists of.</a>
+                </aside>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">The DOM and JavaScript</h2>
+                <p>The DOM is NOT a programming language, but without it, Javascript would not have any model or concept
+                    of
+                    web pages, HTML
+                    documents, XML documents, and their parts (elements). Every element in a document, the document as a
+                    whole, the head,
+                    the body, the footer, p tags, header tags, sections, articles, navs, ul tags, li tags, the tables
+                    within
+                    the document,
+                    table headers, text within the table cells, is part of the DOM for that document. They all can be
+                    accessed and
+                    manipulated using the DOM and Javascript.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">How is a Web Page Built?</h2>
+                <p>How a browser goes from a source HTML document to displaying a styled and interactive page in the
+                    viewport is called the <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path">Critical
+                        Rendering Path</a>.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Refresher: The Viewport</h2>
+                <p>The Viewport is the part of the web page that the viewer can see. Scrollbars move the viewport to
+                    show other parts of the page.</p>
+                <p>The viewport differs with different devices, i.e. mobile phone, ipad, tablet, laptop, or desktop,
+                    etc.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">What Exactly is The Critical Rendering Path?</h2>
+                <p>The Critial Rendering Path is the sequence of steps the browser goes through to convert HTML, CSS,
+                    and JavaScript
+                    into pixels on the screen. Optimizing the critical render path optimizes render performance.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">What Does the Critical Rendering Path Include?</h2>
+                <p>It includes the DOM, the CSS Object Model (CSSOM), render tree, layout, and paint.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">So How Does Browser Rendering Work?</h2>
+                <p>In order for the browser to render content on the page, it has to go through the five steps mentioned
+                    in the previous slide:</p>
+                <code>The DOM, the CSS Object Model (CSSOM), the render tree, layout, and paint.</code>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">When and How Is the DOM Created in the Critical Rendering Path Process?</h2>
+                <p>To process an HTML file, and get to the DOM, the browser has to go through four steps:</p>
+                <code>Convert bytes to characters, identify tokens, convert tokens to nodes, build the DOM tree</code>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">CSS Object Model (CSSOM)</h2>
+                <p>Just as the DOM contains all page content, the CSS Object Model contains all the info on how to style
+                    the DOM. CSSOM is similar to the DOM but different. The building of the DOM is bit by bit, and CSSOM
+                    is render blocking. What does this mean? The browser blocks the page from rendering until it
+                    receives and processes all the CSS. CSS is render blocking because rules can be overwritten in the
+                    CSS, so content can't be rendered until the CSSOM is complete.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">CSS Object Model (CSSOM) (contd)</h2>
+                <p>CSS rules <strong>"cascade" down</strong> (Cascading Style Sheet). In the <strong>stylesheet</strong>
+                    itself, you
+                    could have one rule
+                    state one thing higher up the page, and as you go down the page, the same rule could state something
+                    else. The rule lower down the page is the rule that is then recognized, and it overwrites the
+                    previous rule. In the html page, things cascade down as well. Everything in the head and then then
+                    between the body tags has to render first, and then the script tags render afterwards. That's why it
+                    is important, to usually have your JavaScript tags at the bottom of the page. You want everything
+                    else to render BEFORE the JavaScript is rendered. In essence, the JavaScript DEPENDS on the CSS.
+                    Order is important.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">HTML Parser</h2>
+                <p>Basically, it is the HTML parser, i.e. implemented by the browser, that composes encoding,
+                    pre-parsing, tokenization, and tree formation.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Tokens</h2>
+                <p>Tokenization is the first half of <em><strong>parsing</strong></em> <code>HTML</code>. It means
+                    turning the
+                    <code>HTML</code> <em><strong>markup</strong></em> into individual tokens such as "begin tag" or
+                    "opening tag", "end
+                    tag", etc.</p>
+            </section>
+            <section class="section">
+                <div class="image-wrapper">
+                    <img src="assets/images/Tokenization.png" />
+                </div>
+            </section>
+            <section class="section">
+                <div class="image-wrapper">
+                    <img src="assets/images/dom_tree.png" />
+                </div>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Layout</h2>
+                <p>Once the <code>Render Tree</code> is built, <em><strong>establishment</strong></em> of the
+                    <code>Layout</code> becomes
+                    possible.</p>
+                <ul>
+                    <li><code>Layout</code> is dependent on the size of the screen.</li>
+                    <li>The <code>Layout</code> <em><strong>step</strong></em> determines where and how the elements are
+                        positioned on the
+                        page, determining the <code>width</code> and <code>height</code> of each element, and where they
+                        are in relation to each other.</li>
+                    <aside class="notes">Ask students what they think this Layout relates/refers to in design?</aside>
+                </ul>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">What is the Width of an Element?</h2>
+                <p>Block level elements, such as <code>imgs</code>, have a default width of 100% of the width of their
+                    parent.</p>
+                <ul>
+                    <li>An element with a width of 75%, will be three quarters of the width of its parent.</li>
+                    <li>Unless otherwise specified, the <code>body</code> will have a <em><strong>default</strong></em>
+                        <code>width</code>
+                        of 100%. This means that it will fill 100% of the width of the viewport.</li>
+                    <li>The width of the device impacts Layout.</li>
+                </ul>
+                <aside class="notes">Again, ask how does one troubleshoot the issue of device width across different
+                    devices with
+                    different widths AND (potentially) heights? What are two things one can implement to solve this
+                    problem?</aside>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">The Viewport Revisited</h2>
+                <p>The <em>viewport</em> <code>meta tag</code> defines the width of the layout viewport, impacting the
+                    Layout. Without it, the browser uses the default viewport width, which on <em>by-default</em>
+                    <code>full-screen browsers</code> is <code>960px</code>. </p>
+                <p>On by-default browsers, i.e., your iphone or tablet, if you set the viewport meta tag to
+                    <code>name="viewport" content="width=device-width"</code>, then the <em><strong>width</strong></em>
+                    will be the <code>width</code> of the
+                    <code>device</code> instead of the <em><strong>default</strong></em> <code>viewport width</code>.
+                </p>
+                <aside class="notes">Actually, one should set the viewport meta tag to <code>
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" /></code></aside>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Complete Viewport Meta Tag Contents</h2>
+                <code>name="viewport" content="width=device-width, initial-scale=1.0"</code>
+                <p><code>initial-scale=1.0"</code> sets the <em><strong>initial</strong></em> <code>zoom level</code>
+                    when the <strong>page</strong>
+                    is <em><strong>first loaded</strong></em> by the
+                    <strong>browser</strong>.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Paint</h2>
+                <p>The <em><strong>last</strong></em> <code>step</code> in the <em><strong>critical rendering
+                            path</strong></em> is PAINT,
+                    as in <strong>painting
+                        pixels</strong> to the <em><strong>screen</strong></em>.</p>
+                <ul>
+                    <li><code>Onload</code>, the entire screen is painted.</li>
+                    <li>After that, <em><strong>only</strong></em> impacted areas, areas on the screen which have been
+                        <strong>modified</strong>, will be
+                        repainted. <strong>Browsers</strong> are <code>optimized</code> to
+                        <em><strong>repaint</strong></em> the <strong>minimum</strong> required.
+                        <strong>True</strong> to a
+                        <em><strong>certain extent</strong></em>.
+                        Depends on how much is going on with your <code>JavaScript</code> AND <code>CSS</code> at any
+                        given time.
+                    </li>
+                </ul>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Paint time</h2>
+                <p>Paint time <em><strong>depends on</strong></em> what updates are being
+                    <em><strong>applied</strong></em> to the
+                    <code>render tree</code>.
+                </p>
+                <p><strong>Painting</strong> in of itself is fast, and not the most impactful in improving performance
+                    of your app, but
+                    one does have to <em><strong>take into</strong></em> <strong>consideration</strong> LAYOUT and
+                    REPAINT when <em><strong>measuring</strong></em>
+                    <strong>how long</strong> an <code>animation frame</code>
+                    may take to <strong>render/re-render</strong>, for example.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Styles and Paint</h2>
+                <p>Styles <em><strong>applied to</strong></em> each <code>node</code> increase <strong>paint
+                        time</strong>, but one
+                    <em><strong>should not</strong></em> just
+                    <strong>remove styles</strong> to improve
+                    performance. One has to consider whether the potentially incremental (very small) performance
+                    improvement outweighs the experience it provides to the visitor.</p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Understanding the DOM Means a Better Understanding of JavaScript and How it Works
+                </h2>
+                <p>The DOM is essential to making websites interactive. JavaScript is the client-side scripting language
+                    that connects
+                    to the DOM and directly manipulates it in the browser.</p>
+                <p><em><strong>Understanding</strong></em> the <code>DOM</code> means a <em><strong>better
+                            understanding</strong></em> of
+                    <code>JavaScript</code> and how it
+                    works. For those of you who want to <em><strong>further</strong></em> your
+                    <strong>understanding</strong> of
+                    <code>JavaScript</code>, or want to
+                    go on to <em><strong>using</strong></em> <code>libraries</code> such as <code>React</code> or
+                    <code>frameworks</code>
+                    such as
+                    <code>Vue.js</code>, <code>Angular.js</code>, <code>Nuxt.js</code>, or <code>Next.js</code>, for
+                    example,
+                    <em><strong>understanding</strong></em> the <code>DOM</code> is <em><strong>crucial</strong></em>.
+                </p>
+            </section>
+            <section class="section">
+                <h2 class="capitalize">Related Resources</h2>
+                <ul>
+                    <li><a href="https://en.wikipedia.org/wiki/WHATWG">WHATWG</a>: <strong>Wikipedia</strong></li>
+                    <li>
+                        <a href="https://www.thebalancecareers.com/learn-javascript-online-2071405">Places to Learn
+                            JavaScript Online</a>:
+                        <em>Laurence Bradford</em>, for <strong>the balance careers</strong>
+
+                    </li>
+                    <li>
+                        <a href="https://www.checkmarx.com/blog/javascript-history-infographic/">The History of
+                            JavaScript
+                            [INFOGRAPHIC]</a>: <strong>checkmarx</strong>
+                    </li>
+                    <li>
+                        <a href="https://spec.whatwg.org/">WHATWG - Standards</a>: <strong>WHATWG</strong>
+                    </li>
+                    <li>
+                        <a href="https://dom.spec.whatwg.org/">WHATWG - DOM Standard</a>: <strong>WHATWG</strong>
+                    </li>
+                    <li>
+                        <a href="https://www.w3.org/DOM/">Document Object Model (DOM)</a>: <strong>W3C</strong>
+                    </li>
+                    <li>
+                        <a href="https://bitsofco.de/what-exactly-is-the-dom/">What, exactly, is the DOM?</a>: <em>Ire
+                            Aderinokun</em>, for
+                        <strong>bitsofcode</strong>
+                    </li>
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">Introduction
+                            To The
+                            DOM</a>: <strong>MDN</strong>
+                    </li>
+                    <li>
+                        <a href="https://developer.mozilla.org/en-US/docs/Web/Performance/Critical_rendering_path">Critical
+                            Rendering
+                            Path</a>: <strong>MDN</strong>
+                    </li>
+                    <li>
+                        <a href="https://www.w3.org/2002/07/26-dom-article.html">The Document Object Model (DOM)</a>:
+                        <strong>W3C</strong>
+                    </li>
+                    <li>
+                        <a href="http://speakingjs.com/">Speaking JavaScript: An In-Depth Guide for Programmers</a>:
+                        <em>free</em>
+                        <strong>O'Reilly</strong> book online
+                    </li>
+                    <li>
+                        <a href="https://www.w3resource.com/mongodb/introduction-mongodb.php">Introduction to
+                            MongoDB</a>: <strong>w3resource</strong>
+                    </li>
+                    <li>
+                        <a href="https://en.wikipedia.org/wiki/Document_Object_Model">Document Object Model</a>:
+                        <strong>wikipedia</strong>
+                    </li>
+                    <li>
+                        <a href="https://stackoverflow.com/questions/2939693/what-is-viewport-in-html">What is viewport
+                            in HTML?</a>:
+                        <strong>stackoverflow</strong>
+                    </li>
+                    <li>
+                        <a href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path">Critical
+                            Rendering
+                            Path</a>: <strong>Google</strong>
+                    </li>
+                    <li>
+                        <a
+                            href="https://medium.com/@luisvieira_gmr/understanding-the-critical-rendering-path-rendering-pages-in-1-second-735c6e45b47a">Understanding
+                            the critical rendering path, rendering pages in 1 second</a>: <em>Luis Vieira</em>, on
+                        <strong>Medium</strong>
+                    </li>
+                    <li>
+                        <a
+                            href="https://developers.google.com/web/tools/chrome-devtools/evaluate-performance/reference">Performance
+                            Analysis Reference</a>: <strong>Google</strong>
+                    </li>
+                    <li>
+                        <a href="https://alistapart.com/article/tags-to-dom/">Tags to DOM</a>: <em>Travis Leithead</em>,
+                        for <strong>A List
+                            Apart</strong>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            hash: true,
+            dependencies: [{
+                    src: 'plugin/markdown/marked.js'
+                },
+                {
+                    src: 'plugin/markdown/markdown.js'
+                },
+                {
+                    src: 'plugin/highlight/highlight.js'
+                },
+                {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>
